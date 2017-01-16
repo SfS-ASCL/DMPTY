@@ -1,0 +1,176 @@
+<style>
+  .full button span {
+    background-color: limegreen;
+    border-radius: 32px;
+    color: black;
+  }
+  .partially button span {
+    background-color: orange;
+    border-radius: 32px;
+    color: black;
+  }
+</style>
+
+<h3>Datenauswahl</h3>
+<p>
+  Spezifizieren Sie welche Daten erhalten bzw. gelöscht werden müssen
+  um vertragliche bzw. rechtliche Verpflichtungen einzuhalten.  Es
+  sollte alle wesentlich Daten erhalten bleiben, die die Reproduzierbarkeit der
+  Forschungsergebnisse sicherzustellen. Auch sollten Daten, die für
+  zukünftige Studien relevant sein könnten, erhalten bleiben. Bitte
+  beschreiben Sie kurz die Kriterien für die Datenauswahl.
+</p>
+
+<div class="form-group">
+  <label for="dataSelection">Datenauswahl</label>
+  <textarea rows="10" class="form-control" name="dataSelection" ng-model="formData.dataSelection"
+	    placeholder="Im Projekt gelten die folgenden Kriterien zur Datenauswahl: ... ">
+  </textarea>
+</div>
+
+<h3>Qualitätssicherung</h3>
+<p>
+  Für die langfristige Aufbewahrung von Daten ist ihre Qualitätssicherung ein wichtiges Thema. Es
+  handelt sich dabei zum Beispiel um die Lesbarkeit von OCR-Daten, die Interpretierbarkeit von Scans, die Validität von Programmcode, etc. Im
+  Datenmanagementplan müssen die Strategien für die Qualitätssicherung, denen das Projekt folgen
+  wird, klar beschrieben werden, ebenso wer für sie verantwortlich sein wird.
+</p>
+
+
+<div class="form-group">
+  <label for="qualityAssurance"></label>
+  <textarea rows="10" class="form-control" name="qualityAssurance" ng-model="formData.qualityAssurance" placeholder="Die Daten werden im Projekt erstellt und durch mindestens zwei Projektmitarbeiter vor der Archivierung betrachtet.
+
+oder
+
+Die OCR-Daten wurden unabhängig voneinander von zwei Personen manuell überprüft.
+
+oder
+
+Die Digitalisierung erfolgte im Double-Keying-Verfahren.
+
+oder
+
+Die Publikation, für die die Daten erstellt wurden, wurde Blind Reviewed.
+
+oder
+
+Die Version dieser Ressource beruht auf fehlerkorrigierten Vorversionen.">
+  </textarea>
+</div>
+
+<p>
+  CLARIN-D kann bei der Qualitätssicherung nur im Bereich der Formate helfen. Alle andere Aspekte
+  der Qualitätssicherung sind die Verantwortlichkeit des Projektproviders.
+</p>
+
+<h3>Datenorganisation</h3>
+<p>
+  Für den Bereich der Datenorganisation ist die Granularität der zu aufbewahrenden Daten ein
+  komplexes Problem. Es handelt sich um die Frage, wie die Datenmenge in sinnvolle, bedeutsame
+  digitale Objekte aufgeteilt werden kann, die später zusammengefasst werden und durchsuchbar sein
+  müssen. Was aber ein sinnvolles digitales Objekt sei, hängt vom Kontext der Daten ab.
+</p>
+<p>
+  Beispielsweise kann ein einzelnes Gedicht oder ein einzelner Artikel
+  für eine literarische Analyse ein bedeutungsvolles digitales Objekt
+  sein. Andererseits werden in linguistischen Korpora viele Jahrgänge
+  von Zeitungsartikeln gesammelt. Hier stellt der gesammt Korpus eine
+  sinnvolle digitale Einheit dar, nicht aber seine einzelnen
+  Bestandteile.
+</p>
+<p>
+  Im Datenmanagementplan muss der Provider sich auch klar mit dieser Frage der Granularität
+  auseinandersetzen. Im Plan muss deutlich erwähnt werden, was die digitalen Objekte der Datenmenge
+  sind und was ihre Granularität ist.
+</p>
+
+<div class="form-group">
+  <label for="dataOrgGranularity">Granularität</label>
+  <textarea rows="10" class="form-control" name="dataOrgGranularity" ng-model="formData.dataOrgGranularity"
+	    placeholder="Jedes digitale Objekt entspricht einer Publikation in einer Zeitschrift.
+
+oder
+
+Jedes digitale Objekt entspricht einer üblichen Referenzressource, etwa einer Baumbank, einer lexikalischen Datenbank, etc.
+
+oder
+
+Jedes digitale Objekt entspricht einem Experiment.
+
+oder
+
+...
+">
+  </textarea>
+</div>
+
+<div class="form-group">
+    <label for="dataOrgNumber">Was ist die Anzahl digitaler Objekte?</label>
+    <input type="text" class="form-control" name="dataOrgNumber" ng-model="formData.dataOrgNumber"
+	   placeholder="Bitte geben Sie eine approximative Schätzung.">
+</div>
+
+<div class="form-group">
+    <label for="dataOrgSize">Was ist ihre Speichergröße?</label>
+    <input type="text" class="form-control" name="dataOrgSize" ng-model="formData.dataOrgSize"
+	   placeholder="Bitte geben Sie eine approximative Schätzung in Mega- bzw. Gigabyte.">
+</div>
+
+
+
+<h3>Metadatenerstellung und Datenarchivierung</h3>
+<div class="form-group">
+    <label for="metadataProducer">Wer erstellt die Beschreibungen der Daten (Metadaten)?</label>
+    <input type="text" class="form-control" name="metadataProducer" ng-model="formData.metadataProducer"
+	   placeholder="Der Ersteller der Metadaten ist: ...">    
+</div>
+
+
+  <!-- <ul ng-repeat="centre in centres"> -->
+  <!--   <li>{{ centre.fields.institution }}</li> -->
+  <!-- </ul> -->
+
+<!-- <div class="form-group"> -->
+<!--   <label for="clarinContact_backup">Wer ist Ansprechpartner an dem CLARIN Zentrum?</label> -->
+<!--   <select class="form-control" name="clarinContact_backup" ng-model="formData.clarinContact_backup" -->
+<!-- 	  ng-options="contact.fields.name as contact.fields.name for contact in contacts" style="width:350px;"> -->
+<!--   </select>     -->
+<!-- </div> -->
+
+<div class="form-group">
+  <label for="archivar">Welches Clarin-D Zentrum übernimmt die Archivierung der Daten?</label>
+  <select class="form-control" name="archivar" ng-model="formData.archivar"
+	  ng-options="centre.ac as centre.name for centre in clarind_centres" style="width:350px;"
+	  placeholder="Menuauswahl">
+    <option value=''>Bitte Zentrum auswählen !</option>
+  </select>  
+</div>
+
+Falls Sie im gewählten Clarin-D Zentrum bereits einen anderen Ansprechpartner haben, so korrigieren Sie dies bitte später
+im generierten Dokument!
+<div class="form-group">
+  <label for="clarinContact">Wer ist Ansprechpartner an dem CLARIN Zentrum?</label>
+  <select class="form-control" name="clarinContact" ng-model="formData.clarinContact"
+	  ng-disabled="!formData.archivar"
+	  ng-options="contact for contact in clarinContacts"
+	  style="width:350px;">
+    <option value=''>(bestimmt durch Clarin-D Zentrum)</option>    
+  </select>    
+</div>
+
+<!-- ================================================================================ -->
+
+<div class="form-group">
+    <label for="archiveSupport">In welchem Umfang müssen die Archivare die Übernahme der Daten unterstützen?</label>
+    <textarea rows="10" class="form-control" name="archiveSupport" ng-model="formData.archiveSupport" placeholder="Die Archivare müssen überprüfen, ob die Daten richtig übertragen wurden und ob die Dateien valide sind. Außerdem müssen die prüfen, ob die Metadaten sinnvoll aussehen."></textarea>
+</div>
+	    
+<div class="form-group row">
+  <div class="col-xs-6 col-xs-offset-3">
+    <a ui-sref="form.dataSharing" class="btn btn-block btn-info">
+      N&auml;chster Abschnitt <span class="glyphicon glyphicon-circle-arrow-right"></span>
+    </a>
+  </div>
+</div>
+

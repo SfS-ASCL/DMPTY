@@ -1,0 +1,30 @@
+<h3>Documentation and Metadata</h3>
+<p>
+  What information is necessary so that your research data is readable and interpretable in the future? Please describe how you document the primary research data. Here, the data should be described as specifically as possible in plain text. For measured data, please give for example the definitions of the variables; for annotated corpora, please include a glossary of all annotations as well as the annotation hand book.
+</p>
+
+<div class="form-group">
+  <label for="dataDocumentation"></label>
+  <textarea rows="10" class="form-control" name="dataDocumentatioon" ng-model="formData.dataDocumentation"
+	    placeholder="Ex: The eye tracking data were captured using the model X from company Y with the followng parameter settings. Participants in the experiment were presented with the following stimuli with the following instructions...">
+  </textarea>
+</div>
+
+<p>
+  After the plain text description, please use a metadata format which is as standard as possible to describe your data. For this purpose, please state the metadata format (the “profile”) used for each data type. In principle, the Component Metadata Infrastructure (CMDI) is used to describe the metadata. If necessary, existing CMDI profiles can be adapted according to project needs.
+</p>
+  
+<div class="form-group">
+  <label for="metadataDesc"></label>
+  <textarea rows="10" class="form-control" name="metadataDesc" ng-model="formData.metadataDesc"
+	    placeholder="Ex: The text corpus to be created is described with the help of the CMDI profile 'TextCorpusProfile' (clarin.eu:cr1:p_1290431694580). Adjustments to the profile are not necessary/However, adujustments will be necessary.">
+  </textarea>
+</div>
+
+<div class="form-group row">
+<div class="col-xs-6 col-xs-offset-3">
+  <a ui-sref="form.ethicsLicence" class="btn btn-block btn-info">
+      Next Section<span class="glyphicon glyphicon-circle-arrow-right"></span>
+    </a>
+</div>
+</div>

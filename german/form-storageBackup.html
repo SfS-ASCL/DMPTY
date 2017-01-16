@@ -1,0 +1,47 @@
+<style>
+  .full button span {
+    background-color: limegreen;
+    border-radius: 32px;
+    color: black;
+  }
+  .partially button span {
+    background-color: orange;
+    border-radius: 32px;
+    color: black;
+  }
+</style>
+
+<h3>Datenhaltung während der Projektlaufzeit</h3>
+<p>
+  Wie werden die Daten <em>während</em> des Projektes gespeichert, und
+  wie wird die Datensicherheit (backup) sichergestellt?  Beschreiben
+  Sie wie oft Sicherheitskopien gemacht werden, und inwieweit Sie die universitäre
+  Infrastruktur einbinden können, um regelmäßige, automatisierte Backups
+  durchführen zu können.
+</p>
+
+<div class="form-group">
+    <label for="storage">Beschreibung der Datenhaltung, Speicherung und Backups</label>
+    <textarea rows="10" class="form-control" name="storage" ng-model="formData.storage"
+	      placeholder="Speicherung der Daten: wo, wie oft, auf welchen Medien. Beschreibung der Backup-Policy.">
+    </textarea>
+</div>    
+
+<p>
+  Wie stellen Sie sicher dass <em>während</em> der Projektlaufzeit nur berechtigte Personen Zugriff aud die Projektdaten erhalten?
+  Wenn sie personenbezogene Daten haben, beschreiben Sie bitte hier geeignete Maßnahmen zu ihrem Schutz.
+</p>
+
+<div class="form-group">
+    <label for="accessPolicy">Beschreibung der Zugriffsmechanismen</label>
+    <textarea rows="10" class="form-control" name="accessPolicy" ng-model="formData.accessPolicy" placeholder="Der Projektverantwortliche für die Forschungsdaten stellt durch folgende Maßnahmen sicher, dass nur berechtigte Personen Zugriff auf ..."></textarea>
+</div>
+	    
+<div class="form-group row">
+  <div class="col-xs-6 col-xs-offset-3">
+    <a ui-sref="form.archiveMgr" class="btn btn-block btn-info">
+      N&auml;chster Abschnitt <span class="glyphicon glyphicon-circle-arrow-right"></span>
+    </a>
+  </div>
+</div>
+

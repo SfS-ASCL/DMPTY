@@ -1,0 +1,37 @@
+<h3>Resourcenermittlung</h3>
+<div class="form-group">
+  <label for="metadataBudget">Wie hoch ist der Aufwand der Metadaten-Erstellung?</label>
+  <textarea rows="5" class="form-control" name="metadataBudget" ng-model="formData.metadataBudget"
+	    placeholder="Kurzbeschreibung des Aufwands zur Metadatenerstellung...">
+  </textarea>
+</div>
+
+<div class="form-group">
+  <label for="budgetClarinDZentrum">Bereitgestellte Zeit und Mittel des Clarin-D Zentrums?</label>
+  <textarea rows="5" class="form-control" name="budgetClarinDZentrum" ng-model="formData.budgetClarinDZentrum"
+	    placeholder="Mittelberechnung aus Sicht des Clarin-D Zentrums...">
+  </textarea>
+</div>
+
+<div class="form-group">
+  <label for="budgetOverall">Gesamtbudget:</label>
+  <textarea rows="5" class="form-control" name="budgetOverall" ng-model="formData.budgetOverall"
+	    placeholder="Kalkulation des Gesamtbudgets...">
+  </textarea>
+</div>
+
+
+<div class="text-center">
+    <span class="glyphicon glyphicon-heart"></span>
+    <h3>Plan generieren!</h3>
+
+    <div class="form-group">
+      <label for="formatFormDocument">Welches Datei/Dokumentenformat soll zur Weiterverarbeitung generiert werden?</label>
+      <select class="form-control" name="formatFormDocument" ng-model="formData.formatFormDocument">
+	<option>Microsoft Word (docx)</option>
+	<option>Rich Text Format (rtf)</option>
+	<option>LaTeX</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-danger">Generiere Datenmanagementplan (zum Weitereditieren)</button>
+</div>

@@ -1,0 +1,46 @@
+ <h3>Ethics and Privacy</h3>
+<p>
+  If test subjects are involved in the project, you must clarify whether and how the data will be anonymized and whether the data need special protection on the grounds of personality rights. <br />
+ In general, CLARIN centers only accept anonymized data or data, where the test subject has clearly stated his/her approval of their publication for use in scientific research. In the latter case, the process for obtaining permission for using the data and documenting the permission agreement must be described. 
+</p>
+
+<div class="form-group">
+  <label for="ethicsPrivacy"></label>
+  <textarea rows="10" class="form-control" name="ethicsPrivacy" ng-model="formData.ethicsPrivacy" placeholder="No personal data was gathered.
+
+or
+The data are anonymized according to established practice before archiving.
+
+or
+The data cannot be anonymized, the participating parties have expressed their consent for use of their data for scientific purposes. 
+
+The ethics committe has not voted against the archiving of the data.">
+  </textarea>
+
+</div>
+
+<p>
+  In principal, CLARIN only accepts data which are accessible and intended for free use for academic purposes, because these data can easily be published and distributed. When distribution for academic purposes is not possible, further agreements must be reached with the repository operators. Such limitations should already be considered at the time of the creation of the data management plan. 
+Such limitations can occur for example, when personal rights are involved, when the copyright for raw data belongs to a third party and cannot be obtained, or when there is a time window for scientific use.
+</p>
+<p>
+  Please use the <a href="https://www.clarin.eu/content/clarin-license-category-calculator"
+	 onclick="window.open('https://www.clarin.eu/content/clarin-license-category-calculator', 'newwindow', 'width=800, height=600'); return false;">CLARIN license category calculator</a>
+  to determine the license category and copy the resulting license code into the text field below.
+
+</p>
+
+<div class="form-group">
+    <label for="licence">Description  of the copyright and usage rights of the generated data: </label>
+    <textarea rows="10" class="form-control" name="licence" ng-model="formData.licence" placeholder="The data were not created under the rights of a third party, and therefore the project has every right to distribute licenses. The following license category was determined with the help of the CLARIN License wizard…
+"></textarea>
+</div>
+
+<div class="form-group row">
+  <div class="col-xs-6 col-xs-offset-3">
+    <a ui-sref="form.storageBackup" class="btn btn-block btn-info">
+      Next section <span class="glyphicon glyphicon-circle-arrow-right"></span>
+    </a>
+  </div>
+</div>
+</div>

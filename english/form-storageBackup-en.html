@@ -1,0 +1,42 @@
+<style>
+  .full button span {
+    background-color: limegreen;
+    border-radius: 32px;
+    color: black;
+  }
+  .partially button span {
+    background-color: orange;
+    border-radius: 32px;
+    color: black;
+  }
+</style>
+
+<h3>Data Storage During the Project</h3>
+<p>
+  How will the data be stored <em>during</em> the project and how will the data be secured (backed up)? Please describe how often safety backups will be made and to what extent you can make use of university infrastructure to make regular, automatic backups.
+</p>
+
+<div class="form-group">
+    <label for="storage">Description of data storage, retention, and backups</label>
+    <textarea rows="10" class="form-control" name="storage" ng-model="formData.storage"
+	      placeholder="Storage of the daat: where, how often, on what media. Description of the backup policy.">
+    </textarea>
+</div>    
+
+<p>
+  How do you ensure that only authorized people obtain access to the project data <em>during</em> the project? If you are working with personal data, please describe appropriate measures for their protection here.
+</p>
+
+<div class="form-group">
+    <label for="accessPolicy">Description of the access mechanism</label>
+    <textarea rows="10" class="form-control" name="accessPolicy" ng-model="formData.accessPolicy" placeholder="The person responsible for the research data ensures through the following measures that only authorized people obtain access to the data…"></textarea>
+</div>
+	    
+<div class="form-group row">
+  <div class="col-xs-6 col-xs-offset-3">
+    <a ui-sref="form.archiveMgr" class="btn btn-block btn-info">
+      Next Section <span class="glyphicon glyphicon-circle-arrow-right"></span>
+    </a>
+  </div>
+</div>
+

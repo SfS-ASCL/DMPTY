@@ -1,0 +1,291 @@
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+
+  <div id="form-container">
+  
+    <div class="page-header text-center">
+      <h2>Wizard for Data Management Plan Creation (experimental)</h2>
+      <!-- the links to our nested states using relative paths -->
+      <!-- add the active class if the state matches our ui-sref -->
+      <div id="status-buttons" class="text-center">
+        <a ui-sref-active="active" ui-sref=".project">       <span>1</span>Project Information</a>
+        <a ui-sref-active="active" ui-sref=".dataDesc">      <span>2</span>Research Data</a>
+        <a ui-sref-active="active" ui-sref=".metadata">      <span>3</span>Documentation and Metadata</a>
+        <a ui-sref-active="active" ui-sref=".ethicsLicence"> <span>4</span>Ethics and Rights </a>
+        <a ui-sref-active="active" ui-sref=".storageBackup"> <span>5</span>Data Storage and Backups</a>	
+        <a ui-sref-active="active" ui-sref=".archiveMgr">    <span>6</span>Data Selection, Organization, and Archiving</a>
+	<a ui-sref-active="active" ui-sref=".dataSharing">   <span>7</span>Data Sharing</a>
+        <a ui-sref-active="active" ui-sref=".timetable">     <span>8</span>Time Frame</a>
+        <a ui-sref-active="active" ui-sref=".budget">        <span>9</span>Budget</a>		
+      </div>
+    </div>
+      
+    <!-- use ng-submit to catch the form submission and use our Angular function -->
+    <form id="signup-form" ng-submit="processForm()">
+      <!-- our nested state views will be injected here -->
+      <div id="form-views" ui-view></div>
+    </form>
+  </div>
+  
+  <!-- show our formData as it is being typed -->
+  <tt>Preview (experimental version)</tt>
+  <div id="researchDataPlan.html">
+    <center>
+    <h1>Data Management Plan</h1>
+    </center>
+
+    <p>(Created with the help of DMTPY v0.1)</p>
+    <p align="justify">
+	<X-small>
+	  <em>This document was automatically generated from the information you input and can now be further edited. Please fill in any missing information in the document, correct any grammatical errors, and delete the text blocks that do not apply to you. Text blocks in italics can also be erased.
+	  </em>
+	</X-small>
+    </p>
+    
+    <p align="justify">
+    In this data management plan, we describe the aspects of long term data protection, documentation, long term storage, and reuse of the research data used in the project.
+    </p>
+    
+    <!-- Administrative Data -->
+    <h3>A short summary of the project and data storage</h3>
+    <p align="justify">
+      The proposed project {{ formData.projectName || "(Name of the project)" }} of the {{ formData.projectInstitution || "(Name of the institution)" }} under the leadership of {{ formData.projectLead || "(Name of the project leader)" }} uses the CLARIN-D research infrastructure for data management.
+    </p>
+    
+    <p align="justify">
+      <b>A short description of the project.</b>
+
+      {{ formData.projectGoals || "(Short description of the project)" }}      
+    </p>
+
+    <p align="justify">
+      <b>The data management plan complements or augments existing guidelines for research data management at the research institution: </b>
+      {{ formData.projectRelatedPolicies || "(Description of the local guidelines)" }}      
+    </p>
+    
+    <p align="justify">
+      <b>CLARIN-D Archivist.</b> 
+     It is foreseen that CLARIN-D will take on the storage and dissemination of data and will make it available to the scientific community, reviewers, and the public, if applicable, in the interest of good scientific practice. The CLARIN-D center <em>{{ formData.archivarRealName || "(CLARIN-D Center)"}}</em>
+      is prepared to archive the data for a period of at least 10 years. The contact person at the CLARIN-D center at the time of creation of this plan is <em>{{ formData.clarinContact || "(Name of the CLARIN contact)" }}</em>.
+    </p>
+    <p align="justify">
+      The CLARIN-D center "{{ formData.archivarRealName || "(CLARIN-D Center)" }}" is externally observed and is certified with the <em>Data Seal of Approval</em>: <a target="_blank" href='{{ formData.archivarDSA || "http://www.datasealofapproval.org/en/"}}'>Data Seal of Approval</a>.
+      Additionally, it was evaluated by the <em>CLARIN Centre Assessment
+      Committee</em> and registered as a CLARIN-B Center. The technical requirements for archiving and preparation of the data are given in the following section.
+    </p>
+
+    <!-- Data collection --> 
+    <h3>Description of the research data</h3>
+    <p>{{ formData.dataDescription || "(Description of the research data)" }}
+    </p>
+
+    <p><b>Data Generated in the Project</b></p>
+    <p>
+      At the current time, it is foreseen that data will be created and archived in the following formats: {{ userSelectedDataFormats || "(List of all formats)"  }}.
+      
+      <!-- {{ formData.dataFormats_TEI_P5 }}, {{ formData.dataFormats_DTA  }}, {{ formData.dataFormats_IDS_XCES }}, -->
+      <!-- {{ formData.dataFormats_docx   }}, {{ formData.dataFormats_pdf  }}, {{ formData.dataFormats_latex }}, -->
+      <!-- {{ formData.dataFormats_wav    }}, {{ formData.dataFormats_aiff }}, {{ formData.dataFormats_mp3 }}, {{ formData.dataFormats_pcm }}, -->
+      <!-- {{ formData.dataFormats_avi    }}, {{ formData.dataFormats_mov  }}, {{ formData.dataFormats_mkv }}, {{ formData.dataFormats_mpeg2 }}, -->
+      <!-- und {{ formData.dataFormats_mpeg4 }}. -->
+    </p>
+    <p>
+      The following other data formats will be used: 
+      {{ formData.dataFormats || "(List of other formats)" }}.
+    </p>
+
+    <p><b>Use of Existing Data</b></p>
+    <p>
+      The following previously existing data will also be used in the project: {{ formData.dataOtherSources || "(Existing data sources)" }}.
+    </p>
+    
+    <p>
+      These previously existing data are under the following license:  {{ formData.licenceOtherSources || "(License for the data sources)"}}.
+    </p>
+    <p>
+      <b>Use of existing data:</b>
+      {{ formData.dataUse || "(Eligibility for use)" }}
+    </p>
+    <p>    
+      Derived works may be produced from the previously existing data: {{ formData.dataDerived || "(Derived works))"}}.
+    </p>
+    <p>
+      The relationship between the previously existing data and the new data produced in the project is the following: {{ formData.dataRel || "(Relationship)"}}.
+    </p>
+
+    <!-- Documentation and metadata -->
+    <h3>Documentation and description with metadata</h3>
+    <p>
+      The research data will be documented in the following way in order to facilitate reproducibility of the project results and to enable their reuse in further studies:
+      {{ formData.dataDocumentation || "(Documentation of the data)" }}
+    </p>
+
+    <p>
+      Within the CLARIN-D framework, the metadata are described according to the CMDI-Framework (ISO 24622-1:2015). The following metadata profiles will be used as a basis for the description: 
+
+      {{ formData.metadataDesc || "(Metadata description)" }} 
+    </p>
+
+    <!-- Ethics and Legal Complicance -->
+    <h3>Ethics, data protection, and other legal provisions</h3>
+    <p>
+      {{ formData.ethicsPrivacy || "(Ethics and data protection declaration)" }}
+    </p>
+    
+    <p>
+      If third parties are involved in the project, consent forms from informants and test subjects will be documented, and the documentation will be electronically archived.
+    </p>
+
+    <p>
+      The CLARIN-D center will obtain the non-exclusive usage and publication rights of the data produced in the project titled {{ formData.projectName || "(Name of the project)" }} 
+      with the previously named  restrictions. In particular, the CLARIN-D center has copyright of the project titled {{ formData.projectName || "(Name of the project)" }}, as well as all of the obligations, especially those regarding  the rights of third parties to the data.
+    </p>
+    <p>
+      Particular to the copyright and usage rights in this project is the following:
+
+      {{ formData.licence || "(License declaration)" }} 
+    </p>
+    
+    <p>
+      The data produced shall be made available for scientific research with the following stipulations:
+      {{ formData.dataLicence || "(License for the research data)" }}.
+    </p>
+    
+    <p>
+      The data transfer shall occur in accordance with a data transfer contract to be agreed upon by the data producer and the CLARIN-D center. 
+    </p>
+
+    <!-- Storage and Backup     -->
+    <h3>Data storage throughout project duration</h3>
+    The research data will be stored in the following way throughout the project duration: 
+    
+    {{ formData.storage || "(Data storage and backup)"}}.
+
+    It will be ensured that only authorized people have access to the project research data in the following way: 
+    
+    {{ formData.accessPolicy || "(Data access)" }}
+    
+    <!-- Selection and preservation -->
+    <h3>Data selection, quality assurance, organization and preservation</h3>
+
+    <p>
+      The data for reuse and archiving will be selected in the following way:
+
+      {{ formData.dataSelection || "(Description of the data selection)" }}
+    </p>
+
+    <p>
+      The digital objects will be subject to a quality assurance process before delivery. The process can be described in the following manner:
+
+      {{ formData.qualityAssurance || "(Description of the quality assurance)" }}
+    </p>
+
+    <p>
+      The data are consolidated into units that are suitable for individual transfer. These are stored as separate digital objects. In the case of the data produced in the project {{ formData.projectName }}  the following units are foreseen: 
+
+      {{ formData.dataOrgGranularity || "(Data granularity)" }}
+    </p>
+
+    <p>
+      It is expected that in the project {{ formData.projectName || "(Name of the project" }}, {{ formData.dataOrgNumber || "(Number of data)" }} with the total size {{ formData.dataOrgSize || "(Size of the data)" }} will be created and archived.
+    </p>
+
+    <p>
+    The metadata for the selected research data will be created by {{ formData.metadataProducer }}.
+
+    The CLARIN-D center {{ formData.archivar || "(CLARIN-D Center)"}} will undertake the archiving of the data. 
+
+    The contact person at the CLARIN center is {{ formData.clarinContact || "(CLARIN-D contact)" }}.
+
+    The following CLARIN-D center supports the data transfer: {{ formData.archiveSupport || "(Support)" }}.
+    
+    <!-- Data sharing -->
+    <h3>Access to research data</h3>
+    <p>
+      At the time of creation of this contract, it is foreseen that especially the following groups of people shall have long term access to the data:
+      <ul>
+	<li>Participants in the project {{ formData.projectName || "(Name of the project)" }}</li>
+	<li>Certain reviewers from the project sponsors and participating institutions</li>
+	<li>As well as the target group: {{ formData.targetGroup || "(Target group)" }}</li>
+      </ul>
+    <p>
+      The CLARIN-D center lists the metadata description of the research data in the search catalog so that potential users can easily find the data.
+
+      The data will be made available to interested people through the CLARIN-D center. The CLARIN-D center makes the digital objects available with a persistent identifier.
+
+    </p>
+
+    <!-- Responsibilities and Resources -->
+    <h3>Budget</h3>
+    <p>
+      The following expenses are expected for data management:
+
+      <ul>
+	<li>Creation of the metadata description {{ formData.metadataBudget || "(Budget for creation of metadata)" }}  hours per description.
+</li>
+	
+	<li>For the storage of the data {{ budgetDatasize || "(Budget for data storage)"}} and the corresponding data backup, an expenditure of {{ formData.budgetOverall || "(Total budget)" }} is expected.</li>
+      </ul>
+	<p>  
+      Thus, an amount of {{ formData.budgetOverall || "(Total budget)" }} is expected for data management in the project {{ formData.projectName || "(Name of the project)" }}, of which the CLARIN-D center "{{ formData.archivarRealName || "(CLARIN-D Center)" }}" receives {{ formData.budgetClarinDZentrum || "(Budget for the CLARIN-D center)" }}.
+
+    </p>
+
+    <!-- Extra heading for time schedule -->
+    <h3>Time frame</h3>
+    <p>
+      The project {{ formData.projectName || "(Name of the project)" }} will make the data available on {{ (formData.dataIngest | date: 'longDate') || "(Date of upload)" }}  to the CLARIN-D center "{{ formData.archivarRealName || "(CLARIN-D Center)" in an appropriate medium or by direct upload.
+    </p>
+
+    <p>
+      The description of the data will be provided on {{ (formData.metadataProductionDate | date: 'longDate') || "(Date of metadata creation)" }} by {{ formData.metadataProducer || "(Creator of the metadata)"}} to the CLARIN-D center "{{ formData.archivarRealName || "(CLARIN-D Center)"}}".
+    </p>
+
+    <p>
+      The data from {{ formData.projectName || "(Name of the project)"}} should in the spirit of good scientific practice be available from {{ (formData.serviceFrom | date: 'longDate') || "(Date of first availability)" }} until at least {{ (formData.serviceMin | date:'longDate') || "(Minimum last availability date)" }}.
+    </p>
+    <p>
+      The scientific community should have access to the data for reuse from {{ (formData.dataPubWiss | date:'longDate') || "(Date of first availability for the scientific community)" }}. The general public should have access to the data for reuse from {{ (formData.dataPub | date:'longDate') || "(Date of first availability for the general public)" }} .
+    </p>
+
+    <p>
+      <small><em>If not applicable, please remove.</em></small>
+      Due to the constraints of the project, the data must be deleted by {{ (formData.dataDelete | date:'longDate') || "(Date of data deletion)" }}.
+    </p>
+
+    <br/>    <br/>    <br/>    <br/>
+    <p>
+      <b>Signatures</b>
+      <br/>    <br/>    <br/>
+      {{ formData.projectLead || "(Name of the project leader)"}}
+      <br />
+      Project representative {{ formData.projectName || "(Name of the project)"}},  {{ formData.projectInstitution || "(Research institution)" }}
+      <br />
+      <br />      <br />      <br />      <br />
+      _________________________________________________      
+      <br />      <br />      <br />      <br />
+
+      {{ formData.clarinContact || "(CLARIN-D contact)"}} 
+      <br /> 
+      {{ formData.archivarRealName || "(CLARIN-D Center)" }} (CLARIN-D Center)
+      <br />
+      <br />      <br />      <br />      <br />      
+      _________________________________________________      
+
+  </div>
+  
+  <pre>
+    ==== For debugging only, will be removed. ====
+
+    All information in JSON Format:
+    
+    {{ formData }}
+
+    All user supplied data formats:
+    
+    {{ userSelectedDataFormats }}
+
+  </pre>
+</div>
+</div>
+

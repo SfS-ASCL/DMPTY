@@ -1,0 +1,46 @@
+<h3>Administrative information for the project</h3>
+
+<div class="form-group">
+    <label for="projectName">Which research project will provide the data?</label>
+    <input type="text" class="form-control" name="projectName" ng-model="formData.projectName"
+	   placeholder="Short name of the project">
+</div>
+
+<div class="form-group">
+    <label for="projectGoals">What are the goals of the project?</label>
+    <input type="text" class="form-control" name="projectGoals" ng-model="formData.projectGoals"
+	   placeholder="Short description of the project, research questions, motivation for the creation of the data.">
+</div>
+
+<div class="form-group">
+    <label for="projectLead">Who is the responsible project leader?</label>
+    <input type="text" class="form-control" name="projectLead" ng-model="formData.projectLead"
+	   placeholder="Name of the project leader">
+</div>
+
+<div class="form-group">
+    <label for="projectInstitution">What is the name of the research institute or university?</label>
+    <input type="text" class="form-control" name="projectInstitution" ng-model="formData.projectInstitution"
+	   placeholder="Name of the institute">
+</div>
+
+<div class="form-group">
+    <label for="projectContact">Who are the contacts in this project?</label>
+    <input type="text" class="form-control" name="projectContact" ng-model="formData.projectContact"
+	   placeholder="Contacts, especially regarding the primary research data">
+</div>
+
+<div class="form-group">
+    <label for="projectRelatedPolicies">Do related guidelines from the institute apply?</label>
+    <input type="text" class="form-control" name="projectRelatedPolicies" ng-model="formData.projectRelatedPolicies"
+	   placeholder="existing guidelines for research data at your institute">
+</div>
+
+	    
+<div class="form-group row">
+<div class="col-xs-6 col-xs-offset-3">
+    <a ui-sref="form.dataDesc" class="btn btn-block btn-info">
+    Next Section<span class="glyphicon glyphicon-circle-arrow-right"></span>
+    </a>
+</div>
+</div>

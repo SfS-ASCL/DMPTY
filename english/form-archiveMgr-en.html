@@ -1,0 +1,156 @@
+<style>
+  .full button span {
+    background-color: limegreen;
+    border-radius: 32px;
+    color: black;
+  }
+  .partially button span {
+    background-color: orange;
+    border-radius: 32px;
+    color: black;
+  }
+</style>
+
+<h3>Data Selection</h3>
+<p>
+  Please specify which data must be retained and which must be deleted in order to satisfy contractual or legal obligations. All data essential to the reproducibility of research results should be retained. Data which could be relevant to future studies should also be retained. Please give a short description of the criteria for the data selection.
+</p>
+
+<div class="form-group">
+  <label for="dataSelection">Data selection</label>
+  <textarea rows="10" class="form-control" name="dataSelection" ng-model="formData.dataSelection"
+	    placeholder="In the project, the following criteria for data selection ...">
+  </textarea>
+</div>
+
+<h3>Quality Assurance</h3>
+<p>
+  Quality assurance is important for the long term storage of the data.  For example,  it is important to ensure the readability of OCR data, the interpretability of scans, the validity of program code, etc. The strategies used for quality assurance that the project will follow and who is responsible for quality assurance must be clearly described in the data management plan.
+</p>
+
+
+<div class="form-group">
+  <label for="qualityAssurance"></label>
+  <textarea rows="10" class="form-control" name="qualityAssurance" ng-model="formData.qualityAssurance" placeholder="The data created during the project will be reviewed by at least two people involved in the project before archiving. 
+
+or
+
+The OCR data were independently reviewed manually by two people. 
+
+or
+
+The digitalization was carried out using a double keying process. 
+
+or
+
+The publication for which the data was produced was blind reviewed.
+
+or
+
+The version of this resource was created from a correct previous version.">
+  </textarea>
+</div>
+
+<p>
+  In the area of quality assurance, CLARIN-D can only help with the data formats used. All other aspects of quality assurance are the responsibility of the project provider.
+</p>
+
+<h3>Data Organization</h3>
+<p>
+  For data organization, the granularity of the data to be stored is a complex problem. It is important to be able to split the data into meaningful digital objects that must later be consolidated and searchable. What a meaningful digital object is, however, depends on the context of the data.
+</p>
+<p>
+    For example, a single poem or article can be a meaningful digital object for a literary analysis. On the other hand, many years’ worth of newspaper articles are gathered in linguistic corpora. In this example, the whole corpus is a meaningful digital unit, but not its individual components.
+</p>
+<p>
+  The provider must clearly discuss the question of granularity in the data management plan. It must be clearly stated what the digital objects in the raw data are and what their granularity is.
+</p>
+
+<div class="form-group">
+  <label for="dataOrgGranularity">Granularity</label>
+  <textarea rows="10" class="form-control" name="dataOrgGranularity" ng-model="formData.dataOrgGranularity"
+	    placeholder="Every digital object corresponds to one publication in a journal. 
+
+or
+
+Every digital object corresponds to a standard reference source, such as a treebank, a lexical databank, etc.
+
+or 
+                     
+Every digital object corresponds to an experiment.
+
+or
+
+...
+">
+  </textarea>
+</div>
+
+<div class="form-group">
+    <label for="dataOrgNumber">What is the number of digital objects?</label>
+    <input type="text" class="form-control" name="dataOrgNumber" ng-model="formData.dataOrgNumber"
+	   placeholder="Please give an approximation.">
+</div>
+
+<div class="form-group">
+    <label for="dataOrgSize">What is their memory size?</label>
+    <input type="text" class="form-control" name="dataOrgSize" ng-model="formData.dataOrgSize"
+	   placeholder="Please give an approximation">
+</div>
+
+
+
+<h3>Metadata Creation and Data Archiving</h3>
+<div class="form-group">
+    <label for="metadataProducer">Who issues the descriptions of the data (metadata)?</label>
+    <input type="text" class="form-control" name="metadataProducer" ng-model="formData.metadataProducer"
+	   placeholder="The issuer of the metadata is...">    
+</div>
+
+
+  <!-- <ul ng-repeat="centre in centres"> -->
+  <!--   <li>{{ centre.fields.institution }}</li> -->
+  <!-- </ul> -->
+
+<!-- <div class="form-group"> -->
+<!--   <label for="clarinContact_backup">Wer ist Ansprechpartner an dem CLARIN Zentrum?</label> -->
+<!--   <select class="form-control" name="clarinContact_backup" ng-model="formData.clarinContact_backup" -->
+<!-- 	  ng-options="contact.fields.name as contact.fields.name for contact in contacts" style="width:350px;"> -->
+<!--   </select>     -->
+<!-- </div> -->
+
+<div class="form-group">
+  <label for="archivar">Which CLARIN-D center will archive the data?</label>
+  <select class="form-control" name="archivar" ng-model="formData.archivar"
+	  ng-options="centre.ac as centre.name for centre in clarind_centres" style="width:350px;"
+	  placeholder="Menuauswahl">
+    <option value=''>Please choose a center</option>
+  </select>  
+</div>
+
+If you already have a different contact at the chosen CLARIN-D center, please correct this later in the generated document. 
+<div class="form-group">
+  <label for="clarinContact">Who is the contact at the CLARIN-D center?</label>
+  <select class="form-control" name="clarinContact" ng-model="formData.clarinContact"
+	  ng-disabled="!formData.archivar"
+	  ng-options="contact for contact in clarinContacts"
+	  style="width:350px;">
+    <option value=''>(dependent on CLARIN-D center)</option>    
+  </select>    
+</div>
+
+<!-- ================================================================================ -->
+
+<div class="form-group">
+    <label for="archiveSupport">To what extent must the archivers aid in the transfer of data?</label>
+    <textarea rows="10" class="form-control" name="archiveSupport" ng-model="formData.archiveSupport" placeholder="The archivers must check whether the data were correctly transferred and whether they are valid. Additionally, they must check whether the metadata look reasonable."></textarea>
+</div>
+	    
+<div class="form-group row">
+  <div class="col-xs-6 col-xs-offset-3">
+    <a ui-sref="form.dataSharing" class="btn btn-block btn-info">
+      Next section<span class="glyphicon glyphicon-circle-arrow-right"></span>
+    </a>
+  </div>
+</div>
+

@@ -1,0 +1,142 @@
+<h3>Description of the Primary Research Data</h3>
+<p>
+  In this section, please give a short description of your research data. Here, describe only the data that will be created over the course of the project. If stock data are to be used in your project, please describe them later in the form.<br />
+  
+  Please consider that the choice of data format and processing software have an impact on data archiving and reuse. Whenever possible, open formats and Open-Source Software should be used.
+</p>
+
+<div class="form-group">
+    <label for="dataDescription">Short description of the research data that will be generated:</label>
+    <textarea rows="10" class="form-control" name="dataDescription" ng-model="formData.dataDescription"
+	      placeholder="Which data types shall be created and how? What is the underlying methodology or process? What metrics shall be used? Etc.">
+    </textarea>
+</div>
+
+<p>
+  Repositories generally accept only certain data types that must be in long-lasting and simple to process formats. The CLARIN-D
+  <a href="http://www.clarin-d.de/de/hilfe/benutzerhandbuch" target="_blank">user handbook</a>
+  describes which data types and formats are supported, see S. 56 ff and section 4.3. Formats not included in these sections must be specified in the Data Management Plan.
+</p>
+
+<div class="form-group">
+
+
+  <label ng-repeat="format in predefinedDataFormats">
+    <input type="checkbox" checklist-model="userSelectedDataFormats" checklist-value="format"> {{format}}
+  </label>
+  
+<!--   <\!-- Text encoding formats -\-> -->
+<!--   <label class="checkbox-inline"> -->
+<!--     <input type="checkbox" checklist-model="dataFormats" checklist-value="TEI-P5">TEI-P5 -->
+<!--   </label> -->
+<!--   <label class="checkbox-inline"> -->
+<!--     <input type="checkbox" checklist-model="dataFormats" checklist-value="DTA">DTA base format -->
+<!--   </label>   -->
+<!--   <label class="checkbox-inline"> -->
+<!--     <input type="checkbox" checklist-model="dataFormats" checklist-value="IDS_XCES">IDS-XCES -->
+<!--   </label> -->
+
+<!--   <br /> -->
+
+<!--   <\!-- text processing   -\-> -->
+<!--   <label class="checkbox-inline"> -->
+<!--     <input type="checkbox" ng-model="formData.dataFormats_docx" name="docx">docx -->
+<!--   </label> -->
+<!--   <label class="checkbox-inline"> -->
+<!--     <input type="checkbox" ng-model="formData.dataFormats_pdf" name="pdf">pdf -->
+<!--   </label> -->
+<!--   <label class="checkbox-inline"> -->
+<!--     <input type="checkbox" ng-model="formData.dataFormats_latex" name="tex">LaTeX -->
+<!--   </label> -->
+
+<!--   <br /> -->
+<!--   <\!-- audio   -\-> -->
+<!--   <label class="checkbox-inline"> -->
+<!--     <input type="checkbox" ng-model="formData.dataFormats_wav" name="wav">wav -->
+<!--   </label> -->
+<!--   <label class="checkbox-inline"> -->
+<!--     <input type="checkbox" ng-model="formData.dataFormats_aiff" name="aiff">aiff -->
+<!--   </label> -->
+<!--   <label class="checkbox-inline"> -->
+<!--     <input type="checkbox" ng-model="formData.dataFormats_mp3" name="mp3">mp3 compressed audio -->
+<!--   </label> -->
+<!--   <label class="checkbox-inline"> -->
+<!--     <input type="checkbox" ng-model="formData.dataFormats_pcm" name="pcm">PCM audio -->
+<!--   </label>     -->
+
+<!--   <br />   -->
+<!--   <\!-- video   -\-> -->
+<!--   <label class="checkbox-inline"> -->
+<!--     <input type="checkbox" ng-model="formData.dataFormats_avi" name="avi">avi -->
+<!--   </label> -->
+<!--   <label class="checkbox-inline"> -->
+<!--     <input type="checkbox" ng-model="formData.dataFormats_mov" name="mov">Quicktime (MOV) -->
+<!--   </label> -->
+<!--   <label class="checkbox-inline"> -->
+<!--     <input type="checkbox" ng-model="formData.dataFormats_mkv" name="mkv">Matroska (MKV) -->
+<!--   </label> -->
+<!--   <label class="checkbox-inline"> -->
+<!--     <input type="checkbox" ng-model="formData.dataFormats_mpeg2" name="mpeg2">MPEG2 -->
+<!--   </label> -->
+<!--   <label class="checkbox-inline"> -->
+<!--     <input type="checkbox" ng-model="formData.dataFormats_mpeg4" name="mpeg4">MPEG4/H.264 -->
+<!--   </label>     -->
+</div>
+
+<div class="form-group">
+    <label for="dataFormats">Please list the data formats to be used that are not included in the CLARIN-D handbook here: </label>
+    <textarea rows="10" class="form-control" name="dataFormats" ng-model="formData.dataFormats"
+	      placeholder="Please give a short description for each data format listed here.">
+    </textarea>
+</div>
+
+<p>
+  If you plan to access <em>stock data</em> in your project, please give a short description of the stock data and their underlying license requirements in the following three fields. You should have the rights to reuse these data and work derived from the data should be able to be made accessible.
+</p>
+
+<div class="form-group">
+  <label for="dataOtherSources">Which data from other sources are to be used?</label>
+  <textarea rows="5" class="form-control" name="dataOtherSources" ng-model="formData.dataOtherSources"
+	    placeholder="Description of the stock data">
+  </textarea>  
+</div>
+
+<div class="form-group">
+  <label for="licenceOtherSources">What license are they under?</label>
+  <textarea rows="5" class="form-control" name="licenceOtherSources" ng-model="formData.licenceOtherSources"
+	    placeholder="Who has the rights to the stock data?">
+  </textarea>  
+</div>
+
+<div class="form-group">
+    <label for="dataUse">Are these data available for use in scientific research?</label>
+    <textarea rows="5" class="form-control" name="dataUse" ng-model="formData.dataUse"
+	      placeholder="What are the conditions for use of the stock data?">
+    </textarea>  
+</div>
+
+<div class="form-group">
+    <label for="dataDerived">May works derived from these data be created?</label>
+    <textarea rows="5" class="form-control" name="dataDerived" ng-model="formData.dataDerived"
+	      placeholder="Is it possible to produce derived works from the stock data?">
+    </textarea>  
+</div>
+
+<p>
+  Please state the relationship between the stock data and the data that will be generated in the project.
+</p>
+
+<div class="form-group">
+  <label for="dataRel">Relationship between the stock data and new data:</label>
+  <textarea rows="5"  class="form-control" name="dataRel" ng-model="formData.dataRel"
+	    placeholder="Short description.">
+  </textarea>  
+</div>
+
+<div class="form-group row">
+<div class="col-xs-6 col-xs-offset-3">
+    <a ui-sref="form.metadata" class="btn btn-block btn-info">
+      Next section <span class="glyphicon glyphicon-circle-arrow-right"></span>
+    </a>
+</div>
+</div>

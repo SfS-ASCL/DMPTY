@@ -1,0 +1,46 @@
+<h3>Administrative Daten zum Projekt</h3>
+
+<div class="form-group">
+    <label for="projectName">Welches Forschungsprojekt wird die Daten bereitstellen?</label>
+    <input type="text" class="form-control" name="projectName" ng-model="formData.projectName"
+	   placeholder="Kurzname des Projektes">
+</div>
+
+<div class="form-group">
+    <label for="projectGoals">Was sind die Ziele des Projektes?</label>
+    <input type="text" class="form-control" name="projectGoals" ng-model="formData.projectGoals"
+	   placeholder="Kurzbeschreibung des Projektes, Forschungsfragen des Projektes, Motivation zur Datenerzeugung, ">
+</div>
+
+<div class="form-group">
+    <label for="projectLead">Wer ist verantwortlicher Projektleiter?</label>
+    <input type="text" class="form-control" name="projectLead" ng-model="formData.projectLead"
+	   placeholder="Name des Projektleiters">
+</div>
+
+<div class="form-group">
+    <label for="projectInstitution">Wie ist der Name der Forschungseinrichtung bzw. Universität?</label>
+    <input type="text" class="form-control" name="projectInstitution" ng-model="formData.projectInstitution"
+	   placeholder="Name des Instituts">
+</div>
+
+<div class="form-group">
+    <label for="projectContact">Wer sind die Ansprechpartner in diesem Projekt?</label>
+    <input type="text" class="form-control" name="projectContact" ng-model="formData.projectContact"
+	   placeholder="Ansprechpartner, insbesondere bezüglich der Forschungsprimärdaten">
+</div>
+
+<div class="form-group">
+    <label for="projectRelatedPolicies">Finden verwandte Richtlinien der Institution Anwendung?</label>
+    <input type="text" class="form-control" name="projectRelatedPolicies" ng-model="formData.projectRelatedPolicies"
+	   placeholder="Existierende Richtlinien zu Forschungsdaten an ihrer Einrichtung">
+</div>
+
+	    
+<div class="form-group row">
+<div class="col-xs-6 col-xs-offset-3">
+    <a ui-sref="form.dataDesc" class="btn btn-block btn-info">
+    N&auml;chster Abschnitt <span class="glyphicon glyphicon-circle-arrow-right"></span>
+    </a>
+</div>
+</div>
