@@ -18,7 +18,7 @@ For more information, please contact claus.zinn@uni-tuebingen.de
 
 DMPTY is currently being served at:
 
-```http://www.sfs.uni-tuebingen.de/nalida/dataManagementForm/```
+```http://www.sfs.uni-tuebingen.de/nalida/dataManagementForm/ ```
 
 # Status
 The software is being released as v0.9.
