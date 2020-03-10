@@ -139,7 +139,7 @@ oder
 <!-- </div> -->
 
 <div class="form-group">
-  <label for="archivar">Welches Clarin-D Zentrum übernimmt die Archivierung der Daten?</label>
+  <label for="archivar">Welches CLARIN-D Zentrum übernimmt die Archivierung der Daten?</label>
   <select class="form-control" name="archivar" ng-model="formData.archivar"
 	  ng-options="centre.ac as centre.name for centre in clarind_centres" style="width:350px;"
 	  placeholder="Menuauswahl">
@@ -147,7 +147,7 @@ oder
   </select>  
 </div>
 
-Falls Sie im gewählten Clarin-D Zentrum bereits einen anderen Ansprechpartner haben, so korrigieren Sie dies bitte später
+Falls Sie im gewählten CLARIN-D Zentrum bereits einen anderen Ansprechpartner haben, so korrigieren Sie dies bitte später
 im generierten Dokument!
 <div class="form-group">
   <label for="clarinContact">Wer ist Ansprechpartner an dem CLARIN Zentrum?</label>
@@ -155,7 +155,7 @@ im generierten Dokument!
 	  ng-disabled="!formData.archivar"
 	  ng-options="contact for contact in clarinContacts"
 	  style="width:350px;">
-    <option value=''>(bestimmt durch Clarin-D Zentrum)</option>    
+    <option value=''>(bestimmt durch CLARIN-D Zentrum)</option>    
   </select>    
 </div>
 
