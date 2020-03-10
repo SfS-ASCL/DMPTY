@@ -1,0 +1,57 @@
+ <h3>Ethik und Privacy</h3>
+<p>
+  Falls im Projekt Testpersonen einbezogen werden solllen, ist zu erwähnen, ob und wie
+  die Daten anonymisiert werden und ob die Daten auf Grund von Persönlichkeitsrechten besonderen
+  Schutz bedürfen. <br />
+  In der Regel nehmen CLARIN-Centren nur anoymsierte Daten entgegen oder Daten,
+  bei denen die Personen einer Veröffentlichung für Zwecke der wissenschaftlichen Forschung
+  ausdrücklich zugestimmt haben.
+  In diesem Fall ist zu beschreiben wie die Erlaubnis der Informationsquellen
+  eingeholt wird und diese Zustimmung auch dokumentiert wird.
+</p>
+
+<div class="form-group">
+  <label for="ethicsPrivacy"></label>
+  <textarea rows="10" class="form-control" name="ethicsPrivacy" ng-model="formData.ethicsPrivacy" placeholder="Es wurden keine personenbezogenen Daten erfasst.
+
+oder
+Die Daten werden nach gängigen Verfahren vor der Archivierung anonymisiert.
+
+oder
+Die Daten sind nicht anonymisierbar, die Einwilligung der beteiligten Personen zur Verarbeitung zu wissenschaftlichen Zwecken liegt vor.
+
+Ein Votum der Ethikkommission steht dem Archivieren nicht entgegen.">
+  </textarea>
+
+</div>
+
+<p>
+  Im Prinzip nimmt CLARIN nur offene, für akademische Zwecke frei verwendbare Daten entgegen, da
+  diese problemlos publiziert und verbreitet werden können. Wo eine Verbreitung für akademische
+  Zwecke nicht möglich ist, müssen weitere Vereinbarungen und Absprachen mit den
+  Repositorienbetreibern getroffen werden. Solche Einschränkungen sollen bereits bei der Erstellung
+  des Datenmanagementplans berücksichtigt werden. Solche Einschränkungen können etwas erfolgen,
+  wenn Persönlichkeitsrechte betroffen sind, Urheberrechte an Ausgangsdaten bei Dritten liegen und
+  nicht erworben werden können oder für die Erstverwertung durch Wissenschaftler eine Frist gesetzt
+  wird.
+</p>
+<p>
+  Bitte verwenden Sie für die Lizenzierung
+  die <a href="https://www.clarin.eu/content/clarin-license-category-calculator"
+	 onclick="window.open('https://www.clarin.eu/content/clarin-license-category-calculator', 'newwindow', 'width=800, height=600'); return false;">Hilfestellung von Clarin.</a>
+  Bitte kopieren Sie dann die Lizenzcodierung mittels Copy & Paste in unten stehendes Textfeld !
+</p>
+
+<div class="form-group">
+    <label for="licence">Beschreibung der Urheber- und Verwertungsrechte der generierten Daten:</label>
+    <textarea rows="10" class="form-control" name="licence" ng-model="formData.licence" placeholder="Die zugrundeliegenden Daten wurden frei von Rechten Dritter erstellt, daher hat das Projekt jegliche Möglichkeiten, Lizenzen an andere zu erteilen. Die folgende Lizenz wurde mithilfe des CLARIN Lizenz Wizards identifiziert: ..."></textarea>
+</div>
+
+<div class="form-group row">
+  <div class="col-xs-6 col-xs-offset-3">
+    <a ui-sref="form.storageBackup" class="btn btn-block btn-info">
+      N&auml;chster Abschnitt <span class="glyphicon glyphicon-circle-arrow-right"></span>
+    </a>
+  </div>
+</div>
+</div>

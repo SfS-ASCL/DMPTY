@@ -1,0 +1,355 @@
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+
+  <div id="form-container">
+  
+    <div class="page-header text-center">
+      <h2>Wizard zur Planerstellung f&uuml;r das Datenmanagement (experimentell)</h2>
+      <!-- the links to our nested states using relative paths -->
+      <!-- add the active class if the state matches our ui-sref -->
+      <div id="status-buttons" class="text-center">
+        <a ui-sref-active="active" ui-sref=".project">       <span>1</span>Projektinformationen</a>
+        <a ui-sref-active="active" ui-sref=".dataDesc">      <span>2</span>Forschungsdaten</a>
+        <a ui-sref-active="active" ui-sref=".metadata">      <span>3</span>Dokumentation und Metadaten</a>
+        <a ui-sref-active="active" ui-sref=".ethicsLicence"> <span>4</span>Ethik und Recht </a>
+        <a ui-sref-active="active" ui-sref=".storageBackup"> <span>5</span>Datenspeicherung und Backup</a>	
+        <a ui-sref-active="active" ui-sref=".archiveMgr">    <span>6</span>Datenauswahl -oranisation und -archivierung</a>
+	<a ui-sref-active="active" ui-sref=".dataSharing">   <span>7</span>Daten-Sharing</a>
+        <a ui-sref-active="active" ui-sref=".timetable">     <span>8</span>Zeitlicher Rahmen</a>
+        <a ui-sref-active="active" ui-sref=".budget">        <span>9</span>Budget</a>		
+      </div>
+    </div>
+      
+    <!-- use ng-submit to catch the form submission and use our Angular function -->
+    <form id="signup-form" ng-submit="processForm()">
+      <!-- our nested state views will be injected here -->
+      <div id="form-views" ui-view></div>
+    </form>
+  </div>
+  
+  <!-- show our formData as it is being typed -->
+  <tt>Preview (experimentelle Testversion)</tt>
+  <div id="researchDataPlan.html">
+    <center>
+    <h1>Datenmanagementplan</h1>
+    </center>
+
+    <p>(Erstellt mithilfe von DMTPY v0.1)</p>
+    <p align="justify">
+	<X-small>
+	  <em>Dieses Dokument wurde automatisch aus denen von Ihnen
+	    gegebenen Informationen erzeugt, und kann nun weiter
+	    editiert werden. Bitte ergänzen Sie eventuell noch
+	    fehlende Informationen im Dokument, korrigieren Sie
+	    eventuell erzeugte grammatikalische Verfehlungen, und
+	    löschen Sie diejenigen Textbausteine, die für Sie nicht
+	    anwendbar sind. In kursiv gesetzte Bausteine können in der
+	    Regel ebenso gelöscht werden !
+	  </em>
+	</X-small>
+    </p>
+    
+    <p align="justify">
+    In diesem Datenmanagementplan beschreiben wir die notwendigen
+    Aspekte zur nachhaltigen Sicherung, Dokumentation,
+    Langzeitarchivierung und Nachnutzung der im Projekt genutzten
+    Forschungsdaten.
+    </p>
+    
+    <!-- Administrative Data -->
+    <h3>Kurzinformationen zum Projekt und zur Datenarchivierung</h3>
+    <p align="justify">
+      Das Projektvorhaben
+      {{ formData.projectName || "(Names des Projekts)"  }} der {{ formData.projectInstitution || "(Name der Institution)" }}
+      unter der Leitung von {{ formData.projectLead || "(Name des Projektleiters)" }} kooperiert für das Datenmanagement mit
+      der Forschungsinfrastruktur CLARIN-D.
+    </p>
+    
+    <p align="justify">
+      <b>Kurze Projektbeschreibung.</b>
+
+      {{ formData.projectGoals || "(Kurze Projektbeschreibung)" }}      
+    </p>
+
+    <p align="justify">
+      <b>Der Datenmanagementplan komplementiert bzw. ergänzt existierende Richtlinien zum Forschungsdatenmanagement an der Forschungseinrichtung:</b>
+      {{ formData.projectRelatedPolicies || "(Beschreibung der lokal gegebenen Richtlinien)" }}      
+    </p>
+    
+    <p align="justify">
+      <b>CLARIN-D Archivar.</b> 
+      Es ist vorgesehen, dass CLARIN-D die Aufbewahrung und
+      Dissemination der Daten übernimmt und der wissenschaftlichen
+      Gemeinschaft, den Gutachtern und gegebenenfalls der
+      Öffentlichkeit im Sinne der guten wissenschaftlichen Praxis zu
+      Verfügung stellt.  Das CLARIN-D Zentrum <em>{{ formData.archivarRealName || "(CLARIN-D Zentrum)"}}</em>
+      ist bereit, die Archivierung der Daten für einen Zeitraum von
+      mindestens 10 Jahren zu übernehmen. Ansprechpartner zum
+      Zeitpunkt der Erstellung dieses Plans am CLARIN-D Zentrum ist
+      <em>{{ formData.clarinContact || "(Name des CLARIN Ansprechpartners)" }}</em>.
+    </p>
+    <p align="justify">
+      Das CLARIN-D Zentrum "{{ formData.archivarRealName || "(CLARIN-D Zentrum)" }}" ist extern
+      begutachtet und mit dem <em>Data Seal of Approval</em> zertifiziert
+      worden: <a target="_blank" href='{{ formData.archivarDSA || "http://www.datasealofapproval.org/en/"}}'>Data Seal of Approval</a>.
+      Außerdem wurde es über das <em>CLARIN Centre Assessment
+      Committee</em> bewertet und als CLARIN-B-Zentrum registriert. Die
+      technischen Voraussetzungen für die Archivierung und die
+      Bereitstellung der entsprechenden Daten liegt somit vor.
+    </p>
+
+    <!-- Data collection --> 
+    <h3>Beschreibung der Forschungsdaten</h3>
+    <p>{{ formData.dataDescription || "(Beschreibung der Forschungsdaten)" }}
+    </p>
+
+    <p><b>Selbst-erzeugte Daten</b></p>
+    <p>
+      Nach derzeitigem Stand werden Daten in folgenden Formaten erzeugt und für die Archivierung vorgesehen:
+      {{ userSelectedDataFormats || "(Auflisting aller Formate)"  }}.
+      
+      <!-- {{ formData.dataFormats_TEI_P5 }}, {{ formData.dataFormats_DTA  }}, {{ formData.dataFormats_IDS_XCES }}, -->
+      <!-- {{ formData.dataFormats_docx   }}, {{ formData.dataFormats_pdf  }}, {{ formData.dataFormats_latex }}, -->
+      <!-- {{ formData.dataFormats_wav    }}, {{ formData.dataFormats_aiff }}, {{ formData.dataFormats_mp3 }}, {{ formData.dataFormats_pcm }}, -->
+      <!-- {{ formData.dataFormats_avi    }}, {{ formData.dataFormats_mov  }}, {{ formData.dataFormats_mkv }}, {{ formData.dataFormats_mpeg2 }}, -->
+      <!-- und {{ formData.dataFormats_mpeg4 }}. -->
+    </p>
+    <p>
+      Davon abweichend werden die folgenden Datenformate verwendet: 
+      {{ formData.dataFormats || "(Liste der abweichenden Datenformate)" }}.
+    </p>
+
+    <p><b>Zugriff auf Bestandsdaten:</b></p>
+    <p>
+      Im Projekt sollen ebenso Bestandsdaten verwendet werden: {{ formData.dataOtherSources || "(Nennung von Bestandsdaten)" }}.
+    </p>
+    
+    <p>
+      Die Bestandsdaten stehen unter folgenden Lizenz: {{ formData.licenceOtherSources || "(Lizenz der Bestandsdaten)"}}.
+    </p>
+    <p>
+      <b>Nachnutzbarkeit der Bestandsdaten:</b>
+      {{ formData.dataUse || "(Gegebenheit der Nachnutzbarkeit)" }}
+    </p>
+    <p>    
+      Es dürfen abgeleitete Werke aus den Bestandsdaten erstellt werden: {{ formData.dataDerived || "(Abgeleitete Werke))"}}.
+    </p>
+      Das Verhältnis zwischen Bestandsdaten und neuen Daten ist wie folgt: {{ formData.dataRel || "(Verhältnis)"}}.
+    </p>
+
+    <!-- Documentation and metadata -->
+    <h3>Dokumentation und Beschreibung mit Metadaten</h3>
+    <p>
+      Die Forschungsdaten werden wie folgt dokumentiert, um eine
+      Reproduzierbarkeit der Projektergebnisse bzw. eine Nachnutzung
+      in weiteren Studien zu ermöglichen:
+
+      {{ formData.dataDocumentation || "(Dokumentation der Daten)" }}
+    </p>
+
+    <p>
+      Im Rahmen von CLARIN-D erfolgt die Beschreibung der Metadaten
+      mithilfe des CMDI-Frameworks (ISO 24622-1:2015). Dabei sind die
+      folgenden Metadatenprofile als Ausgangspunkt zur Beschreibung 
+      vorsehen:
+
+      {{ formData.metadataDesc || "(Metadatenbeschreibung)" }} 
+    </p>
+
+    <!-- Ethics and Legal Complicance -->
+    <h3>Ethik, Datenschutz, andere rechtliche Bestimmungen</h3>
+    <p>
+      {{ formData.ethicsPrivacy || "(Ethik und Datenschutzerklärung)" }}
+    </p>
+    
+    <p>
+      Sollten Rechte Dritter berührt sein, so werden
+      Einverständniserklärungen, etwa von Informanten und Testpersonen
+      dokumentiert und die Dokumentation elektronisch zur Archivierung
+      beigefügt.
+    </p>
+
+    <p>
+      Das CLARIN-D-Zentrum erhält an dem im Projekt {{ formData.projectName || "(Names des Projekts)" }} 
+      erzeugten Daten das nicht-ausschließliche Verwertungs- und Publikationsrecht nach
+      den genannten Einschränkungen. Insbesondere verbleibt das
+      Urheberrecht beim Projekt {{ formData.projectName || "(Names des Projekts)" }} und auch
+      alle Pflichten, insbesondere zur Beachtung eventueller Rechte Dritter an den Daten.
+    </p>
+    <p>
+      Besonders zu Urheber- und Verwertungsrechten ist gilt zudem Folgendes:
+
+      {{ formData.licence || "(Lizenzerklärung)" }} 
+    </p>
+    
+    <p>
+      Die erzeugten Daten sollen für die wissenschaftliche Forschung
+      unter folgenden Maßgaben verfügbar gemacht werden:
+
+      {{ formData.dataLicence || "(Lizenz der Forschungsdaten)" }}.
+    </p>
+    
+    <p>
+      Die Datenübergabe erfolgt dabei zusammen mit der Unterzeichnung
+      eines Datenübernahmevertrages, der zwischen Datenbereitsteller
+      und CLARIN-D Zentrum geschlossen wird.
+    </p>
+
+    <!-- Storage and Backup     -->
+    <h3>Datenhaltung während der Projektlaufzeit</h3>
+    Die Forschungsdaten werden während der Projektlaufzeit wie folgt gehalten:
+    
+    {{ formData.storage || "(Datenspeicherung und BackUp)"}}.
+
+    Es wird wie folgt sichergestellt, dass nur berechtigte Personen
+    Zugriff auf die Projektforschungsdaten haben:
+    
+    {{ formData.accessPolicy || "(Datenzugriff)" }}
+    
+    <!-- Selection and preservation -->
+    <h3>Datenauswahl, -qualitätssicherung, -organisation, -preservation</h3>
+
+    <p>
+      Die Daten zur Nachnutzung und -archivierung werden wie folgt ausgewählt:
+
+      {{ formData.dataSelection || "(Beschreibung der Datenselektion)" }}
+    </p>
+
+    <p>
+      Die digitalen Objekte werden vor der Übergabe einem Qualitätssicherungsprozess
+      unterworfen. Dieser Prozess kann wie folgt beschrieben werden:
+
+      {{ formData.qualityAssurance || "(Beschreibung der Qualitätssicherung)" }}
+    </p>
+
+    <p>
+      Die Daten sind in Einheiten zusammengefasst, die zur autonomen Weitergabe geeignet
+      sind. Diese werden als digitale Objekte getrennt voneinander abgelegt. Im Fall der im Projekt
+      {{ formData.projectName }} erzeugten Daten sind folgende Einheiten vorgesehen:
+
+      {{ formData.dataOrgGranularity || "(Datengranularität)" }}
+    </p>
+
+    <p>
+      Es wird damit gerechnet, das im Projekt {{ formData.projectName || "(Name des Projekts" }} {{ formData.dataOrgNumber || "(Anzahl der Daten)" }}
+      von der Größe von insgesamt {{ formData.dataOrgSize || "(Größe der Daten)" }} entstehen, die zur Achivierung vorgesehen werden.
+    </p>
+
+    <p>
+    Die Metadaten zu den ausgewählten Forschungsdaten werden von {{
+    formData.metadataProducer }} erstellt.
+
+    Das CLARIN-D Zentrum {{ formData.archivar || "(CLARIN-D Zentrum)"}}
+    übernimmt die Archivierung der Daten.
+
+    Der Ansprechpartner des CLARIN Zentrum ist
+    {{ formData.clarinContact || "(CLARIN-D Ansprechpartner)" }}.
+
+    Das CLARIN-D Zentrum unterstützt die Übernahme der Daten:
+    {{ formData.archiveSupport || "(Unterstützung)" }}
+    
+    <!-- Data sharing -->
+    <h3>Zugang zu Forschungsdaten</h3>
+    <p>
+      Zum Zeitpunkt der Antragstellung ist insbesondere daran gedacht, dass folgende Personengruppen langfristig Zugang zu den Daten haben sollen:
+      <ul>
+	<li>Projektbeteiligte am Projekt {{ formData.projectName || "(Name des Projekts)" }}</li>
+	<li>Von den Geldgebern und beteiligten Institutionen bestimmte Gutachter</li>
+	<li>Sowie die Zielgruppe: {{ formData.targetGroup || "(Zielgruppe)" }}</li>
+      </ul>
+
+      Das CLARIN-D Zentrum nimmt die Metadatenbeschreibungen der
+      Forschungsdaten in den Suchkatalog auf, sodass potentielle
+      Nutzer die Daten problemlos auffinden können.
+
+      Interessierten Personen werden die Daten über das CLARIN-D
+      Zentrum zur Verfügung gestellt.  Das CLARIN-D Zentrum macht
+      digitale Objekte über einen persistenten Identififator
+      verfügbar.
+    </p>
+
+    <!-- Responsibilities and Resources -->
+    <h3>Budget</h3>
+    <p>
+      Für das Datenmanagement wird mit folgenden Aufwänden gerechnet:
+
+      <ul>
+	<li>Erstellung der Metadatenbeschreibung: {{ formData.metadataBudget || "(Budget zur Metadatenerstellung)" }} Stunde pro Beschreibung</li>
+	
+	<li>Für das Speichern der Datenmenge {{ budgetDatasize || "(Budget Datenhandling)"}}  und die zugehörige Datensicherung wird mit
+	  einem Aufwand von {{ formData.budgetOverall || "(Gesamtbudget)" }} gerechnet.</li>
+      </ul>
+	  
+      Für das Datenmanagement wird daher ein Betrag von {{ formData.budgetOverall || "(Gesamtbudget)" }}  im Projekt
+      {{ formData.projectName || "(Name des Projekts)" }} vorgesehen, davon erhält das CLARIN-D-Zentrum "{{ formData.archivarRealName || "(CLARIN-D Zentrum)" }}"
+      {{ formData.budgetClarinDZentrum || "(Budget des CLARIN-D Zentrums)" }} 
+      
+    </p>
+
+    <!-- Extra heading for time schedule -->
+    <h3>Zeitlicher Rahmen</h3>
+    <p>
+      Das Projekt {{ formData.projectName || "(Name des Projektes)" }} wird die Daten zum
+      {{ (formData.dataIngest | date: 'longDate') || "(Datum des Uploads)" }}
+      dem CLARIN-D Zentrum "{{ formData.archivarRealName || "(CLARIN-D Zentrum)" }}" auf einem geeignetem Medium
+      oder per Upload zur Verfügung stellen.
+    </p>
+
+    <p>
+      Die Beschreibungen der Daten werden am {{ (formData.metadataProductionDate | date: 'longDate') || "(Datum der Metadaten-Erzeugung)" }} von
+      {{ formData.metadataProducer || "(Ersteller der Metadaten)"}} an das CLARIN-D-Zentrum "{{ formData.archivarRealName || "(CLARIN-D Zentrum)"}}" übergeben.
+    </p>
+
+    <p>
+      Die Daten von {{ formData.projectName || "(Name des Projekts)"}} sollen im Sinne guter wissenschaftlicher Praxis ab
+      {{ (formData.serviceFrom | date: 'longDate') || "(Bereitstellungsdatum)" }} bis mindestens
+      {{ (formData.serviceMin | date:'longDate') || "(Mindesbereitstellungsdatum)" }}
+      vorgehalten werden.
+    </p>
+    <p>
+      Der   wissenschaftlichen Gemeinschaft sollen die Daten zu Nachnutzung ab {{ (formData.dataPubWiss | date:'longDate') || "(Bereitstellungsdatum für Scientific Community)" }}
+      allgemein verfügbar gemacht werden. Der Öffentlichkeit sollen die Daten zu Nachnutzung ab
+      {{ (formData.dataPub | date:'longDate') || "(Bereitstellungsdatum für Öffentlichkeit)" }} allgemein verfügbar gemacht werden.
+    </p>
+
+    <p>
+      <small><em>Wenn nicht anwendbar, bitte streichen.</em></small>
+      Auf Grund von Auflagen aus dem Projektzusammenhang müssen die Daten zum {{ (formData.dataDelete | date:'longDate') || "(Datum für Datenlöschung)" }} gelöscht werden.
+    </p>
+
+    <br/>    <br/>    <br/>    <br/>
+    <p>
+      <b>Unterschriften</b>
+      <br/>    <br/>    <br/>
+      {{ formData.projectLead || "(Name des Projektleiters)"}}
+      <br />
+      Projektvertreter {{ formData.projectName || "(Name des Projekts)"}},  {{ formData.projectInstitution || "(Forschungseinrichtung)" }}
+      <br />
+      <br />      <br />      <br />      <br />
+      _________________________________________________      
+      <br />      <br />      <br />      <br />
+
+      {{ formData.clarinContact || "(CLARIN-D Ansprechpartner)"}} 
+      <br /> 
+      {{ formData.archivarRealName || "(CLARIN-D Zentrum)" }} (CLARIN-D Zentrum)
+      <br />
+      <br />      <br />      <br />      <br />      
+      _________________________________________________      
+
+  </div>
+  
+  <pre>
+    ==== For debugging only, will be removed. ====
+
+    All information in JSON Format:
+    
+    {{ formData }}
+
+    All user supplied data formats:
+    
+    {{ userSelectedDataFormats }}
+
+  </pre>
+</div>
+</div>
+

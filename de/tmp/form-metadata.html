@@ -1,0 +1,41 @@
+<h3>Dokumentation und Metadaten</h3>
+<p>
+  Welche Informationen sind notwendig damit ihre Forschungsdaten auch
+  in Zukunft lesbar und interpretierbar sind?  Beschreiben Sie auf
+  welche Art Sie die Forschungsprimärdaten dokumentieren. Hier sollten
+  -- im Klartext -- die Daten möglichst genau beschrieben werden. Bei
+  Messdaten geben Sie bespielsweise die Definition der Variablen an,
+  bei annotierten Korpora legen Sie bitte ein Glossar aller
+  Annotationen sowie das Annotationshandbuch mit bei.
+</p>
+
+<div class="form-group">
+  <label for="dataDocumentation"></label>
+  <textarea rows="10" class="form-control" name="dataDocumentatioon" ng-model="formData.dataDocumentation"
+	    placeholder="Beispiel: Die Eyetrackingdaten wurden mit dem Modell X der Firma Y unter Einstellung der folgeden Parameter gewonnen. Den Versuchspersonen wurden die folgenden Stimuli nach folgender Vorschrift präsentiert...">
+  </textarea>
+</div>
+
+<p>
+  Nach der Klartextbeschreibung verwenden Sie bitte zusätzlich ein möglichst standardisiertes Metadatenformat zur Beschreibung ihrer Daten.
+  Geben Sie hierzu für jeden Datentyp das zu verwendende Metadatenformat (das
+  "Profil") an. Als Metadaten-Beschreibungsmittel wird grundsätzlich
+  die Component Metadata Infrastructure (CMDI, ISO 24622-1 und ISO 24622-2) verwendet. Falls
+  notwendig, können existierende CMDI Profile an Projekterfordernisse
+  angepasst werden.
+</p>
+  
+<div class="form-group">
+  <label for="metadataDesc"></label>
+  <textarea rows="10" class="form-control" name="metadataDesc" ng-model="formData.metadataDesc"
+	    placeholder="Beispiel: der zu erstellende Textkorpus wird mithilfe des CMDI Profils 'TextCorpusProfile' (clarin.eu:cr1:p_1290431694580) beschrieben. Ein Anpassung des Profils ist nicht nötig / wird aber nötig sein.">
+  </textarea>
+</div>
+
+<div class="form-group row">
+<div class="col-xs-6 col-xs-offset-3">
+  <a ui-sref="form.ethicsLicence" class="btn btn-block btn-info">
+      N&auml;chster Abschnitt <span class="glyphicon glyphicon-circle-arrow-right"></span>
+    </a>
+</div>
+</div>

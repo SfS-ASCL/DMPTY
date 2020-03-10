@@ -1,0 +1,155 @@
+<h3>Beschreibung der Forschungsprimärdaten</h3>
+<p>
+  In diesem Anschnitt beschreiben Sie bitte kurz ihre
+  Forschungsdaten. Beschreiben Sie dabei zunächst die Daten die während er
+  Projektlaufzeit erzeugt werden sollen; falls im Projekt 
+  Bestandsdaten verwendet werden sollen, so beschreiben Sie dies bitte getrennt.<br />
+  
+  Bitte berücksichtigen Sie dass die Wahl von Datenformaten und
+  Verarbeitungssoftware einen Einfluss auf die nachhaltige
+  Archivierung und Nachnutzbarkeit ihrer Daten hat. Wenn immer
+  möglich, sollten offene Formate sowie Open-Source Software verwendet
+  werden.
+</p>
+
+<div class="form-group">
+    <label for="dataDescription">Kurze Beschreibung der zu erzeugenden Forschungsdaten:</label>
+    <textarea rows="10" class="form-control" name="dataDescription" ng-model="formData.dataDescription"
+	      placeholder="Welche Art(en) von Daten sollen erzeugt werden, und auf welche Art und Weise? Welche Methodik bzw. welches Verfahren steht dahinter? Welche Messinstrumente kommen zum Einsatz? Etc.">
+    </textarea>
+</div>
+
+<p>
+  Repositorien nehmen in der Regel nur bestimmte Datentypen entgegen, die zudem in nachhaltigen und
+  einfach zu verarbeitbaren Formaten vorliegen müssen. Das CLARIN-D
+  <a href="http://www.clarin-d.de/de/hilfe/benutzerhandbuch" target="_blank">Benutzerhandbuch</a>
+  beschreibt welche Typen und Formate unterstützt werden, siehe S. 56 ff und Abschnitt 4.3.
+  Davon abweichende Formate sind im Datenmanagementplan näher zu spezifizieren.
+</p>
+
+<div class="form-group">
+
+
+  <label ng-repeat="format in predefinedDataFormats">
+    <input type="checkbox" checklist-model="userSelectedDataFormats" checklist-value="format"> {{format}}
+  </label>
+  
+<!--   <\!-- Text encoding formats -\-> -->
+<!--   <label class="checkbox-inline"> -->
+<!--     <input type="checkbox" checklist-model="dataFormats" checklist-value="TEI-P5">TEI-P5 -->
+<!--   </label> -->
+<!--   <label class="checkbox-inline"> -->
+<!--     <input type="checkbox" checklist-model="dataFormats" checklist-value="DTA">DTA base format -->
+<!--   </label>   -->
+<!--   <label class="checkbox-inline"> -->
+<!--     <input type="checkbox" checklist-model="dataFormats" checklist-value="IDS_XCES">IDS-XCES -->
+<!--   </label> -->
+
+<!--   <br /> -->
+
+<!--   <\!-- text processing   -\-> -->
+<!--   <label class="checkbox-inline"> -->
+<!--     <input type="checkbox" ng-model="formData.dataFormats_docx" name="docx">docx -->
+<!--   </label> -->
+<!--   <label class="checkbox-inline"> -->
+<!--     <input type="checkbox" ng-model="formData.dataFormats_pdf" name="pdf">pdf -->
+<!--   </label> -->
+<!--   <label class="checkbox-inline"> -->
+<!--     <input type="checkbox" ng-model="formData.dataFormats_latex" name="tex">LaTeX -->
+<!--   </label> -->
+
+<!--   <br /> -->
+<!--   <\!-- audio   -\-> -->
+<!--   <label class="checkbox-inline"> -->
+<!--     <input type="checkbox" ng-model="formData.dataFormats_wav" name="wav">wav -->
+<!--   </label> -->
+<!--   <label class="checkbox-inline"> -->
+<!--     <input type="checkbox" ng-model="formData.dataFormats_aiff" name="aiff">aiff -->
+<!--   </label> -->
+<!--   <label class="checkbox-inline"> -->
+<!--     <input type="checkbox" ng-model="formData.dataFormats_mp3" name="mp3">mp3 compressed audio -->
+<!--   </label> -->
+<!--   <label class="checkbox-inline"> -->
+<!--     <input type="checkbox" ng-model="formData.dataFormats_pcm" name="pcm">PCM audio -->
+<!--   </label>     -->
+
+<!--   <br />   -->
+<!--   <\!-- video   -\-> -->
+<!--   <label class="checkbox-inline"> -->
+<!--     <input type="checkbox" ng-model="formData.dataFormats_avi" name="avi">avi -->
+<!--   </label> -->
+<!--   <label class="checkbox-inline"> -->
+<!--     <input type="checkbox" ng-model="formData.dataFormats_mov" name="mov">Quicktime (MOV) -->
+<!--   </label> -->
+<!--   <label class="checkbox-inline"> -->
+<!--     <input type="checkbox" ng-model="formData.dataFormats_mkv" name="mkv">Matroska (MKV) -->
+<!--   </label> -->
+<!--   <label class="checkbox-inline"> -->
+<!--     <input type="checkbox" ng-model="formData.dataFormats_mpeg2" name="mpeg2">MPEG2 -->
+<!--   </label> -->
+<!--   <label class="checkbox-inline"> -->
+<!--     <input type="checkbox" ng-model="formData.dataFormats_mpeg4" name="mpeg4">MPEG4/H.264 -->
+<!--   </label>     -->
+</div>
+
+<div class="form-group">
+    <label for="dataFormats">Liste der davon abweichenden
+    Datenformate:</label>
+    <textarea rows="10" class="form-control" name="dataFormats" ng-model="formData.dataFormats"
+	      placeholder="Bitte geben Sie für jedes abweichende Datenformat eine kurze Erläuterung.">
+    </textarea>
+</div>
+
+<p>
+  Falls im Projekt auf <em>Bestandsdaten</em> zugegriffen werden soll, beschreiben Sie in den folgenden drei Feldern bitte kurz
+  die Bestandsdaten und ihre zugrundeliegenden Lizenzbedingungen. Der Datenbereitsteller sollte die
+  Rechte für die Nachnutzung dieser Daten besitzten, und ebenso sollten die abgeleiteten Werke zugänglich gemacht
+  werden dürfen.
+</p>
+
+<div class="form-group">
+  <label for="dataOtherSources">Welche Daten aus anderen Quellen sollen genutzt werden?</label>
+  <textarea rows="5" class="form-control" name="dataOtherSources" ng-model="formData.dataOtherSources"
+	    placeholder="Beschreibung der Bestandsdaten">
+  </textarea>  
+</div>
+
+<div class="form-group">
+  <label for="licenceOtherSources">Unter welcher Lizenz stehen die?</label>
+  <textarea rows="5" class="form-control" name="licenceOtherSources" ng-model="formData.licenceOtherSources"
+	    placeholder="Wo liegen die Rechte der Bestandsdaten?">
+  </textarea>  
+</div>
+
+<div class="form-group">
+    <label for="dataUse">Sind die Bestandsdaten für die wissenschaftliche Forschung nachnutzbar?</label>
+    <textarea rows="5" class="form-control" name="dataUse" ng-model="formData.dataUse"
+	      placeholder="Wie steht es um die Nachnutzbarkeit der Bestandsdaten?">
+    </textarea>  
+</div>
+
+<div class="form-group">
+    <label for="dataDerived">Dürfen abgeleitete Werke aus den Bestandsdaten erstellt werden?</label>
+    <textarea rows="5" class="form-control" name="dataDerived" ng-model="formData.dataDerived"
+	      placeholder="Ist es möglich, abgeleitete Werke von Bestandsdaten zu erstellen??">
+    </textarea>  
+</div>
+
+<p>
+  Erklären Sie bitte das Verhältnis zwischen den Bestandsdaten und den Daten, die im Projekt generiert werden sollen.
+</p>
+
+<div class="form-group">
+  <label for="dataRel">Verhältnis zwischen Bestandsdaten und neuen Daten:</label>
+  <textarea rows="5"  class="form-control" name="dataRel" ng-model="formData.dataRel"
+	    placeholder="Kurzbeschreibung.">
+  </textarea>  
+</div>
+
+<div class="form-group row">
+<div class="col-xs-6 col-xs-offset-3">
+    <a ui-sref="form.metadata" class="btn btn-block btn-info">
+      N&auml;chster Abschnitt <span class="glyphicon glyphicon-circle-arrow-right"></span>
+    </a>
+</div>
+</div>

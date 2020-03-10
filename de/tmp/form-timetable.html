@@ -1,0 +1,214 @@
+<h3>Zeitlicher Rahmen der Archivierung</h3>
+<p>
+  Für die langfristige und sichere Archivierung im Sinne einer guten wissenschaftlichen Praxis ist die
+  Verlässlichkeit von Repositorien unerlässlich. Die CLARIN-D-Zentren sind extern evaluiert und
+  zertifiziert worden und entsprechen den Kriterien des Data Seal of Approval (DSA) und des
+  CLARIN-Centre Assessment. Damit sind die Anforderungen an eine Archivierung über übliche
+  Zeiträume für Forschungsdaten gewährleistet.
+</p>
+<p>
+  In der Regel sollten Forschungsdaten mindestens zehn Jahre lang
+  aufbewahrt werden.  Bitte füllen Sie den nachfolgenden Zeitplan
+  weitestmöglichst aus. Falls ein Nachnutzbarkeit nicht möglich ist,
+  lassen Sie bitte das entsprechende Datenfeld leer, und korrigieren
+  den entsprechenden Absatz im generierten Dokument.
+</p>
+
+
+<div class="form-group">
+  <label for="metadataproductionDate">Wann werden die Metadaten erstellt?</label>
+  <div class="row">
+    <div class="col-md-12">
+      <p class="input-group">
+	<!-- min-date="'2015-01-01'" max-date="'2030-01-01'" -->
+        <input name="metadataProductionDate"
+	       type="text" class="form-control" datepicker-popup="dd-MMMM-yyyy"
+	       ng-model="formData.metadataProductionDate"
+	       is-open="metadataProductionDate_opened"
+	       min-date="minDate" max-date="maxDate"
+	       datepicker-options="dateOptions"	       
+	       ng-required="true"
+	       ng-click="metadataProductionDate_opened = !metadataProductionDate_opened" 	       
+	       today-text="Heute"
+	       clear-text="Zurücksetzen"
+	       close-text="Auswahl" />
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-default" ng-click="metadataProductionDate_open($event)">
+	    <i class="glyphicon glyphicon-calendar"></i></button>
+	  <button type="button" class="btn btn-sm btn-info" ng-click="metadataProductionDate_today()">Heute</button>
+	  <button type="button" class="btn btn-sm btn-danger" ng-click="metadataProductionDate_clear()">Lösche</button>
+        </span>
+      </p> 
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label for="dataingest">Wann werden die Daten an ein Repositorium übertragen?</label>
+  <div class="row">
+    <div class="col-md-12">
+      <p class="input-group">
+        <input name="dataIngest"
+	       type="text" class="form-control" datepicker-popup="dd-MMMM-yyyy"
+	       ng-model="formData.dataIngest"
+	       is-open="dataIngest_opened"
+	       min-date="formData.metadataProductionDate"
+	       date-disabled="disabled(date, mode)"
+	       datepicker-options="dateOptions"
+	       ng-required="true"
+	       ng-click="dataIngest_opened = !dataIngest_opened" 
+	       today-text="Heute"
+	       clear-text="Zurücksetzen"
+	       close-text="Auswahl" />
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-default" ng-click="dataIngest_open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+	  <button type="button" class="btn btn-sm btn-info" ng-click="dataIngest_today()">Heute</button>
+	  <button type="button" class="btn btn-sm btn-danger" ng-click="dataIngest_clear()">Lösche</button>
+        </span>
+      </p> 
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label for="serviceFrom">Die Bereitstellung der Daten erfolgt ab:</label>
+  <div class="row">
+    <div class="col-md-12">
+      <p class="input-group">
+	<!-- min-date="'2015-01-01'" max-date="'2030-01-01'" -->
+        <input name="serviceFrom"
+	       type="text" class="form-control" datepicker-popup="dd-MMMM-yyyy"
+	       ng-model="formData.serviceFrom"	       
+	       is-open="serviceFrom_opened"
+	       min-date="minDate" max-date="maxDate"
+	       ng-required="true"
+	       ng-click="serviceFrom_opened = !serviceFrom_opened" 	       
+	       today-text="Heute"
+	       clear-text="Zurücksetzen"
+	       close-text="Auswahl" />
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-default" ng-click="serviceFrom_open($event)">
+	    <i class="glyphicon glyphicon-calendar"></i></button>
+	  <button type="button" class="btn btn-sm btn-info" ng-click="serviceFrom_today()">Heute</button>
+	  <button type="button" class="btn btn-sm btn-danger" ng-click="serviceFrom_clear()">Lösche</button>
+        </span>
+      </p> 
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label for="dataPubWiss">Die Veröffentlichung an wissenschaftliche Gemeinschaft zur Nachnutzung erfolgt ab:</label>
+  <div class="row">
+    <div class="col-md-12">
+      <p class="input-group">
+	<!-- min-date="'2015-01-01'" max-date="'2030-01-01'" -->
+        <input name="dataPubWiss"
+	       type="text" class="form-control" datepicker-popup="dd-MMMM-yyyy"
+	       ng-model="formData.dataPubWiss"	       
+	       is-open="dataPubWiss_opened"
+	       min-date="minDate" max-date="maxDate"
+	       ng-required="true"
+	       ng-click="dataPubWiss_opened = !dataPubWiss_opened" 	       
+	       today-text="Heute"
+	       clear-text="Zurücksetzen"
+	       close-text="Auswahl" />
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-default" ng-click="dataPubWiss_open($event)">
+	    <i class="glyphicon glyphicon-calendar"></i></button>
+	  <button type="button" class="btn btn-sm btn-info" ng-click="dataPubWiss_today()">Heute</button>
+	  <button type="button" class="btn btn-sm btn-danger" ng-click="dataPubWiss_clear()">Lösche</button>
+        </span>
+      </p> 
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label for="dataPub">Die Veröffentlichung an die Öffentlichkeit zur Nachnutzung erfolgt ab:</label>
+  <div class="row">
+    <div class="col-md-12">
+      <p class="input-group">
+	<!-- min-date="'2015-01-01'" max-date="'2030-01-01'" -->
+        <input name="dataPub"
+	       type="text" class="form-control" datepicker-popup="dd-MMMM-yyyy"
+	       ng-model="formData.dataPub"	       
+	       is-open="dataPub_opened"
+	       min-date="minDate" max-date="maxDate"
+	       ng-required="true"
+	       ng-click="dataPub_opened = !dataPub_opened" 	       
+	       today-text="Heute"
+	       clear-text="Zurücksetzen"
+	       close-text="Auswahl" />
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-default" ng-click="dataPub_open($event)">
+	    <i class="glyphicon glyphicon-calendar"></i></button>
+	  <button type="button" class="btn btn-sm btn-info" ng-click="dataPub_today()">Heute</button>
+	  <button type="button" class="btn btn-sm btn-danger" ng-click="dataPub_clear()">Lösche</button>
+        </span>
+      </p> 
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label for="serviceMin">Eine Mindestbereitstellung der Daten erfolgt bis:</label>
+  <div class="row">
+    <div class="col-md-12">
+      <p class="input-group">
+	<!-- min-date="'2015-01-01'" max-date="'2030-01-01'" -->
+        <input name="serviceMin"
+	       type="text" class="form-control" datepicker-popup="dd-MMMM-yyyy"
+	       ng-model="formData.serviceMin"	       
+	       is-open="serviceMin_opened"
+	       min-date="minDate" max-date="maxDate"
+	       ng-required="true"
+	       ng-click="serviceMin_opened = !serviceMin_opened" 	       
+	       today-text="Heute"
+	       clear-text="Zurücksetzen"
+	       close-text="Auswahl" />
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-default" ng-click="serviceMin_open($event)">
+	    <i class="glyphicon glyphicon-calendar"></i></button>
+	  <button type="button" class="btn btn-sm btn-info" ng-click="serviceMin_today()">Heute</button>
+	  <button type="button" class="btn btn-sm btn-danger" ng-click="serviceMin_clear()">Lösche</button>
+        </span>
+      </p> 
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label for="dataDelete">Ein verpflichtete Löschen bzw. Vernichten der Daten erfolgt bis:</label>
+  <div class="row">
+    <div class="col-md-12">
+      <p class="input-group">
+	<!-- min-date="'2015-01-01'" max-date="'2030-01-01'" -->
+        <input name="dataDelete"
+	       type="text" class="form-control" datepicker-popup="dd-MMMM-yyyy"
+	       ng-model="formData.dataDelete"	       
+	       is-open="dataDelete_opened"
+	       data-min-date="{{formData.serviceMin}}"  max-date="maxDate"
+	       ng-required="true"
+	       ng-click="dataDelete_opened = !dataDelete_opened" 	       
+	       today-text="Heute"
+	       clear-text="Zurücksetzen"
+	       close-text="Auswahl" />
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-default" ng-click="dataDelete_open($event)"> <!--  -->
+	    <i class="glyphicon glyphicon-calendar"></i></button>
+	  <button type="button" class="btn btn-sm btn-info" ng-click="dataDelete_today()">Heute</button>
+	  <button type="button" class="btn btn-sm btn-danger" ng-click="dataDelete_clear()">Lösche</button>
+        </span>
+      </p> 
+    </div>
+  </div>
+</div>
+
+<div class="form-group row">
+<div class="col-xs-6 col-xs-offset-3">
+  <a ui-sref="form.budget" class="btn btn-block btn-info">
+      N&auml;chster Abschnitt <span class="glyphicon glyphicon-circle-arrow-right"></span>
+    </a>
+</div>
+</div>
